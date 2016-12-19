@@ -1,0 +1,63 @@
+<aiml version="1.0.1" encoding="UTF-8">
+    <category>
+        <pattern>WHAT IS MY NAME</pattern>
+        <template>
+              <get name="name" />
+        </template>
+    </category>
+
+    <category>
+      <pattern>MY NAME IS *</pattern>
+      <template>
+         Hello <set name="name"><star/></set>
+      </template>
+   </category>
+
+   <category>
+      <pattern>MY DOGS NAME IS *</pattern>
+      <template>
+         That is interesting that you have a dog named <set name="dog"><star/></set>
+      </template>
+   </category>
+   <category>
+      <pattern>WHAT IS MY DOGS NAME</pattern>
+      <template>
+         Your dog's name is <get name="dog"/>.
+      </template>
+   </category>
+
+   <category>
+      <pattern>I AM * YEARS OLD</pattern>
+      <template>
+         OH. YOUR ARE YOUNG AT <set name="age"><star/></set>
+      </template>
+   </category>
+    <category>
+        <pattern>WHAT IS MY LAST NAME</pattern>
+        <template>
+            <get name="lastname" />
+        </template>
+    </category>
+    <category>
+        <pattern>DO YOU [LOVE LUV] ME</pattern>
+        <template>Yes, I love you.</template>
+    </category>
+    <category>
+        <pattern>WHY * IS * </pattern>
+        <template>
+            I don't know. You tell me why <star index = "1"/> is <star index = "2"/>
+        </template>
+    </category>
+    <category>
+        <pattern>BECAUSE * </pattern>
+        <template>
+            You're right... I suppose
+        </template>
+    </category>
+    <category>
+        <pattern> * IS * </pattern>
+        <template>
+            Of course <star index = "1"/> is <star index = "2"/>?
+        </template>
+    </category>
+</aiml>
