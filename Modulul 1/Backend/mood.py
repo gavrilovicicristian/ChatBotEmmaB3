@@ -6,7 +6,7 @@ headers = {'content-type': 'application/json'}
 
 class Mood:
     def __init__(self):
-        self.moodScores = ();
+        self.moodScores = dict()
 
     def getCurrentMood(self):
         auxMoodScore = 0
@@ -21,8 +21,19 @@ class Mood:
         data = {'text': message}
         response = requests.post(url, data=json.dumps(data), headers=headers)
         jsonResponse = json.loads(response.content)
-        for key,value in jsonResponse["document_tone"].items():
-            print (value)
+        try:
+            for tone_categories in jsonResponse["document_tone"]["tone_categories"]:
+                key = tone_categories['tones'][0]['tone_name']
+                value = tone_categories['tones'][0]['score']
+                if key in self.moodScores:
+                    self.moodScores[key] += value
+                else:
+                    self.moodScores[key] = value
+        except KeyError:
+            pass
 
-m = Mood()
-m.addMoodsForMessage("What's up ?");
+
+# m = Mood()
+# print("I love you")
+# m.addMoodsForMessage("How are you?")
+# print('Current mood: ' + m.getCurrentMood())
