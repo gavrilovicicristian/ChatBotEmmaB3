@@ -5,35 +5,22 @@ url = 'https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?versi
 headers = {'content-type': 'application/json'}
 
 class Mood:
-    def __init__(self):
-        self.moodScores = dict()
 
-    def getCurrentMood(self):
-        auxMoodScore = 0
-        currentMood = ""
-        for key,value in self.moodScores.items():
-            if value > auxMoodScore:
-                currentMood = key
-                auxMoodScore = value
-        return currentMood
-
-    def addMoodsForMessage(self,message):
+    def get_current_mood(self,message):
+        maxValue = 0
+        returnedKey = ''
         data = {'text': message}
         response = requests.post(url, data=json.dumps(data), headers=headers)
         jsonResponse = json.loads(response.content)
         try:
-            for tone_categories in jsonResponse["document_tone"]["tone_categories"]:
-                key = tone_categories['tones'][0]['tone_name']
-                value = tone_categories['tones'][0]['score']
-                if key in self.moodScores:
-                    self.moodScores[key] += value
-                else:
-                    self.moodScores[key] = value
+            for tone in jsonResponse["document_tone"]["tone_categories"]:
+                for i in tone["tones"]:
+                    key = i["tone_name"]
+                    value = i["score"]
+                    if(value > maxValue):
+                        returnedKey = key
+                        maxValue = value
         except KeyError:
             pass
 
-
-# m = Mood()
-# print("I love you")
-# m.addMoodsForMessage("How are you?")
-# print('Current mood: ' + m.getCurrentMood())
+        return returnedKey

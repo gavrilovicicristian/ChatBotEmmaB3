@@ -3,6 +3,8 @@ from flask_cors import CORS, cross_origin
 import MySQLdb, aiml,os
 from memory_check import Memory
 import threading
+from mood import Mood
+
 app = Flask(__name__)
 
 db = MySQLdb.connect(host="ppdatabase.ccvycmsqlp8u.eu-central-1.rds.amazonaws.com",    # your host, usually localhost
@@ -29,11 +31,12 @@ kernel.respond("load aiml b")
 # # kernel.setPredicate("dog", "Brandy", sessionId)
 # kernel.setPredicate("name", "Alexa Vasilovici", sessionId)
 # # kernel.setPredicate("age", "25", sessionId)
-
+botMood = Mood()
 # Press CTRL-C to break this loop
 @app.route('/<question>')
 def main(question):
-    users=table
+    print botMood.get_current_mood(question)
+    #users=table
     bootMemory= Memory()
     res=kernel.respond(question,sessionId)
     if bootMemory.checkQuestionRepetition(question)==1:
@@ -43,18 +46,11 @@ def main(question):
         return response
     bootMemory.addQuestion(question)
     bootMemory.addResponse(res)
-    name=kernel.getPredicate("name",sessionId)
-    dog = kernel.getPredicate("dog", sessionId)
-    if name!="":
-        users=[t for t in users if t[1]==name]
-    if dog!="":
-        users=[t for t in users if t[4]==dog]
-    if len(users)==1:
-        user=users[0]
-        kernel.setPredicate("lastname",user[2],sessionId)
     if res=='':
         return 'I do not know the answer to that.'
     return res
+
+
 db.close()
 
 def deleteContent(fName):
