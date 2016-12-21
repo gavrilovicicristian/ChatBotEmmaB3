@@ -4,6 +4,8 @@ import MySQLdb, aiml,os
 from memory_check import Memory
 import threading
 from mood import Mood
+from personBD import *
+from personality import *
 
 app = Flask(__name__)
 
@@ -28,13 +30,18 @@ kernel = aiml.Kernel()
 kernel.learn("std-startup.xml")
 kernel.respond("load aiml b")
 
-# # kernel.setPredicate("dog", "Brandy", sessionId)
-# kernel.setPredicate("name", "Alexa Vasilovici", sessionId)
-# # kernel.setPredicate("age", "25", sessionId)
+initialize_bot(kernel,sessionId)
+
 botMood = Mood()
+
+attr=getPeopleAttributes()
+iKnowOp=2
+
 # Press CTRL-C to break this loop
 @app.route('/<question>')
 def main(question):
+    global attr
+    global iKnowOp
     print botMood.get_current_mood(question)
     #users=table
     bootMemory= Memory()
@@ -46,6 +53,14 @@ def main(question):
         return response
     bootMemory.addQuestion(question)
     bootMemory.addResponse(res)
+
+    if len(attr)>1:
+        attr=verifyExistence(kernel,sessionId,attr)
+    if len(attr)==1:
+        iKnowOp=1
+    if len(attr)==0:
+        iKnowOp=0
+        decideToMemorate(kernel,sessionId)
     if res=='':
         return 'I do not know the answer to that.'
     return res
