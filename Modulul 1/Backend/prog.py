@@ -6,6 +6,7 @@ import threading
 from mood import Mood
 from personBD import *
 from personality import *
+from randomAnswer import RandomAnswer
 
 app = Flask(__name__)
 
@@ -23,7 +24,12 @@ cur = db.cursor()
 cur.execute("SELECT * FROM Users")
 
 table= cur.fetchall()
+cur.execute("SELECT * FROM Question")
+questions = cur.fetchall()
 
+db.close()
+
+rnd = RandomAnswer()
 sessionId=12345
 # Create the kernel and learn AIML files
 kernel = aiml.Kernel()
@@ -62,11 +68,9 @@ def main(question):
         iKnowOp=0
         decideToMemorate(kernel,sessionId)
     if res=='':
-        return 'I do not know the answer to that.'
+        res = rnd.answer(questions)
     return res
 
-
-db.close()
 
 def deleteContent(fName):
     with open(fName, "w"):
