@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+
+<category>
+		<pattern> HI </pattern>
+		<template>What's up</template>
+	</category>
+
+	<category>
+		<pattern>HELLO</pattern>
+		<template><srai>HI</srai></template>
+	</category>
+		
+	<!--
+	<category>
+		<pattern>HI</pattern>
+		<template>Hello *</template>
+		<random>
+			<li><get name="name"></li>
+			<li>dude</li>
+			<li>mate</li>
+		</random>
+	</category>
+-->
+
+	<category>
+		<pattern>MY NAME IS *</pattern>
+		<template>Nice to meet you ,<set name="name"><star/></set></template>
+	</category>
+
+	
+
+	<catgory>
+	<pattern>My name is * and I am * years old</pattern>
+	<template> Hi <star/>. I am also <star index="2"/> years old!</template>
+	</category>
+
+	<catgory>
+	<pattern>How old are you</pattern>
+	<template>I am <bot name="age"> years old!</template>
+	</category>
+
+	<catgory>
+		<pattern>My name is *</pattern>
+		<template>Nice to meet you, <set name="name"><star/></set></template>
+	</category>
+
+	
+	<!-- What is area -->
+	<category>
+		<pattern>DO YOU KNOW WHAT * IS?</pattern>
+		<template><srai>WHAT IS THE <star/></srai></template>
+	</category>
+
+	<category>
+		<pattern>DO YOU KNOW WHAT * ARE?</pattern>
+		<template>WHAT ARE THE <star/></template>
+	</category>
+	
+	<catgory>
+		<pattern>What is my name</pattern>
+		<template>Your name is <get name="name"/>.</template>
+			<random>
+				<li>It's <get name="name"> ofcourse.</li>
+			</random>
+	</category>
+
+	<category>
+		<pattern>WHAT ARE YOU</pattern>
+		<template>
+			<think><set name="topic">Me</set></think> 
+			I am the latest result in artificial intelligence,
+			which can reproduce the capabilities of the human brain
+			with greater speed and accuracy.
+		</template>
+	</category>
+
+	<catgory>
+		<pattern>The apple is *</pattern>
+		<template>
+			<think><set var="color"><star/></set></think>
+			I like <get var="color">apples.
+		</template>
+	</category>
+	
+	<catgory>
+		<pattern>How the term Flexor is best described</pattern>
+		<template><think><set name="flexor">The <get name="flexor"> decreases the angle at a joint</think></template>
+	</category>
+
+	<catgory>
+	<pattern>An adductor decreases the angle at a joint</pattern>
+	<template><srai>true</srai></template>
+	</category>
+
+
+	<catgory>
+		<pattern>true</pattern>
+		<template>This afirmation it's true.</template>
+	</category>
+
+	<category>
+		<pattern>DO YOU</pattern>
+		<template>
+			<random>
+				<li>Yes I do.</li>
+				<li>No I don't.</li>
+				<li>Sometimes.</li>
+				<li>Never.</li>
+				<li>As often as possible.</li>
+			</random>
+		</template>
+	</category>
+
+	<category>
+		<pattern>GOOD ONE</pattern>
+		<template>Thanks for the kind remark, friend.</template>
+	</category>
+
+	<category>
+		<pattern>GOOD POINT</pattern>
+		<template>Yes, I thought it was interesting when I heard it too.</template>
+	</category>
+
+	<category>
+		<pattern>GOOD</pattern>
+		<template>
+			<random>
+				<li>Alright then.</li>
+				<li>Thanks for the compliment.</li>
+				<li>Ayuh.</li>
+			</random>
+		</template>
+	</category>
+
+	<category>
+		<pattern>*</pattern>
+		<template>I have no answer for that</template>
+	</category>
+	
+	
+	<!-- categories for random stuff  -->	
+	<category>
+		<pattern>A LITTLE BIT</pattern>
+		<template>When?</template>
+	</category>
+	
+	<category>
+		<pattern>A LITTLE STRESSED</pattern>
+		<template>From what?</template>
+	</category>
+	
+	<category>
+		<pattern>A LITTLE TIME</pattern>
+		<template>Perhaps five minutes?</template>
+	</category>
+	
+	<category>
+		<pattern>A LONG TIME</pattern>
+		<template>Many years?</template>
+	</category>
+	
+	<category>
+		<pattern>A LOT OF PEOPLE</pattern>
+		<template>Do you know them personally?</template>
+	</category>
+	
+	<category>
+		<pattern>A LOT OF PRACTICE</pattern>
+		<template>That's what it takes.</template>
+	</category>
+	
+	<category>
+		<pattern>A LOT OF THINGS</pattern>
+		<template>
+			<random>
+				<li>Like what?</li>
+				<li>Name a few.</li>
+				<li>For example...</li>
+			</random>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>A SMART ONE</pattern>
+		<template>
+			If you could, please tell me what would make it smart.
+		</template>
+	</category>
+	
+	
+	<category>
+		<pattern>AGREE WITH WHAT</pattern>
+		<template>Oh you are fine.</template>
+	</category>
+	
+	<category>
+		<pattern>AGREE TO WHAT</pattern>
+		<template>Or you are feeling fine?</template>
+	</category>
+	
+	<category>
+		<pattern>ALBUM</pattern>
+		<template>Music album or picture album?</template>
+	</category>
+	
+	<category>
+		<pattern>ALGEBRA</pattern>
+		<template>
+			What specifically about algebra interests you?
+			<think>
+				<set name="it">
+					<set name="topic">algebra</set>
+				</set>
+			</think>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>ALIENS</pattern>
+		<template>I believe in UFOs.</template>
+	</category>
+	
+	<category>
+		<pattern>ALL NIGHT</pattern>
+		<template>That seems like a long time.</template>
+	</category>
+	
+	
+	<!-- ASK -->
+	<category>
+		<pattern>ASK ME ANOTHER QUESTION</pattern>
+		<template>Where do you live?</template>
+	</category>
+	
+	<category>
+		<pattern>ASK ME ANOTHER</pattern>
+		<template>Isn't that another one in itself?</template>
+	</category>
+	
+	<category>
+		<pattern>ASK ME MORE QUESTIONS</pattern>
+		<template>Tell me about your educational background.</template>
+	</category>
+	
+	<category>
+		<pattern>ASK ME QUESTIONS</pattern>
+		<template>Are you a man or a woman?</template>
+	</category>
+	
+	<category>
+		<pattern>ASK ME SOMETHING ELSE</pattern>
+		<template>Do you prefer books or TV?</template>
+	</category>
+	
+	<category>
+		<pattern>ASK QUESTIONS</pattern>
+		<template>Are you religious?</template>
+	</category>
+	
+	<category>
+		<pattern>ASK WHAT</pattern>
+		<template>Ask me anything.</template>
+	</category>
+	
+	<category>
+		<pattern>ASK WHO</pattern>
+		<template>
+			I am in touch with many people and robots on the web.
+		</template>
+	</category>
+	
+	
+	
+	<category>
+		<pattern>ABC</pattern>
+		<template>DEF</template>
+	</category>
+	
+	<category>
+		<pattern>A B C</pattern>
+		<template>D E F G H I.</template>
+	</category>
+
+	<category>
+		<pattern>AH HA</pattern>
+		<template>Eureka!</template>
+	</category>
+	
+	<category>
+		<pattern>AH</pattern>
+		<template>Ah hah.</template>
+	</category>
+	
+	<category>
+		<pattern>AHA</pattern>
+		<template>Eureka!</template>
+	</category>
+	
+	<category>
+		<pattern>AHHH</pattern>
+		<template>Um.</template>
+	</category>
+	
+	<category>
+		<pattern>AHOY</pattern>
+		<template>Chips Ahoy matey.</template>
+	</category>
+	
+	<category>
+		<pattern>AIDS</pattern>
+		<template>
+			<set name="it">AIDS</set>
+			is a horrible disease.
+		</template>
+	</category>
+	
+	<!-- anatomy stuff -->
+	<!-- ORGAN LOCATION -->
+	<category>
+		<pattern>Where * located?</pattern>
+		<template><srai><get name = "topic"> LOCATION</srai></template>
+	</category>
+	
+	<category>
+		<pattern>Where * the * located?</pattern>
+		<template><srai><star index = "2"/> LOCATION</srai></template>
+	</category>
+
+	<category>
+		<pattern>* location of the *?</pattern>
+		<template><srai><star index = "2"/> LOCATION</srai></template>
+	</category>
+
+	<category>
+		<pattern>HEART LOCATION</pattern>
+		<template>It might be a shocker for some of you but hearts isn't really located on the left side of your chest. It lies between the right and left lungs in the middle of the chest and slightly towards the left of the breastbone.</template>
+	</category>
+	
+	<category>
+		<pattern>BRAIN LOCATION</pattern>
+		<template>The brain is located in the top part of the head called the skull. The skull which is made up of 28 bones serves the sole purpose of protecting the brain from injury and trauma.</template>
+	</category>
+
+	<category>
+		<pattern>LUNGS LOCATION</pattern>
+		<template>The lungs are located within the chest cavity on either side of the heart. Each lung reaches from the collarbone to the border between the chest and abdominal cavities</template>
+	</category>
+
+	
+	<!-- FACT ABOUT * -->
+	<category>
+		<pattern> * ABOUT THE *</pattern>
+		<template><srai> FACTS ABOUT THE <star index = "2"/></srai></template>
+		</template>
+	</category>
+
+	<category>
+		<pattern> What can you tell me about the *</pattern>
+		<template><srai> FACTS ABOUT THE <star index = "2"/></srai></template>
+		</template>
+	</category>
+
+	<category>
+		<pattern> FACTS ABOUT THE BRAIN</pattern>
+		<template>
+			<random>
+				<li>Did you know our brains are getting smaller. Over the past 10-20.000 years the size of the average human brain has shrunk by the size of a tennis ball.</li>
+				<li>The brain makes up about 2 percent of a human's body weight</li>
+				<li>Reading out loud to kids accelerates their brain development.</li>
+				<li>The brain is approximately 75% water but you should never drink it.</li>
+				<li>Your brain was disproportionately large compared to other organs when you were born.That's why babies look a bit like aliens. Not yours of course yours are cute just other peoples babies.</li>
+				<li>It's a self development urban myth that we only use 10% of our brain. We use it all and if you don't believe me cut a bit out and see what happens.Unfortunately Limitless due out soon is going to re-embed this myth as it's based on the story line that we use 20% of our brain and you can take a pill to access the other 80%. Ho-hum.</li>
+			</random>
+		</template>
+	</category>
+
+	<category>
+		<pattern> FACTS ABOUT THE HEART</pattern>
+		<template>
+			<random>
+				<li>It beats 100.000 times a day</li>
+				<li>Each minute your heart pumps 1.5 gallons of blood </li>
+				<li>The heart has its own electrical supply and will continue to beat when separated from the body.</li>
+				<li>The blue whale has the largest heart weighing over 1.500 pounds.</li>
+			</random>
+		</template>
+	</category>
+
+	<category>
+		<pattern> FACTS ABOUT THE LUNGS</pattern>
+		<template>
+			<random>
+				<li>An average person breathes in around 11.000 litres of air every day.</li>
+				<li>It's impossible to breathe and swallow simultaneously.</li>
+				<li>Your lungs are your only organs that can float on water.</li>
+			</random>
+		</template>
+	</category>
+	
+	
+	
+	<!-- Topics -->
+	<topic name = "heart">
+		<category>
+			<pattern>How many chambers does it have?</pattern>
+			<template>The heart is divided into four chambers: upper left and right atria; and lower left and right ventricles.</template>
+		</category>
+	</topic>
+
+	<!--
+	<topic name = "brain">
+		<category>
+			<pattern></pattern>
+			<template></template>
+		</category>
+	</topic>
+	<topic name = "lungs">
+		<category>
+			<pattern></pattern>
+			<template></template>
+		</category>
+	</topic>
+	-->
+	
+	
+	<category>
+		<pattern>WHAT IS THE HEART?</pattern>
+		<template>A thing that you cannot live without.No really now the heart is a muscular organ in humans and other animals, which pumps blood through the blood vessels of the circulatory system.<think><set name = "topic">heart</set></think></template>
+	</category>
+
+	<category>
+		<pattern> WHAT IS THE BRAIN?</pattern>
+		<template>The human brain is the command center for the human nervous system.<think><set name = "topic">brain</set></template>
+	</category>
+
+	<category>
+		<pattern> WHAT ARE THE LUNGS?</pattern>
+		<template>Lungs are organs in your chest that allow your body to take in oxygen from the air. They also help remove carbon dioxide (a waste gas that can be toxic) from your body.<think><set name = "topic">lungs</set></template>
+	</category>
+	
+	
+	<catgory>
+		<pattern>What is the anatomical name for the commonly termed *</pattern><!--windpipe-->
+		<template><think><set name="windpipe">Trachea is anatomical name for <get name="windpipe">.</template>
+	</category>
+
+	<catgory>
+		<pattern>What is the basic unit of life</pattern>
+		<template>The Cell</template>
+	</category>
+
+	<catgory>
+		<pattern>What is the name for a muscle that turns a limb to face upwars</pattern>
+		<template>Supinator. I think</template>
+	</category>
+
+	<catgory>
+		<pattern>What is the name of the large, long bone found in the upper leg</pattern>
+		<template>It's femur</template>
+	</category>
+
+	<catgory>
+		<pattern>How is best described the term Rotator</pattern>
+		<think><set name="rotator"></think>
+		<template>The <get name="rotator"> is best described as totates a limb</template>
+	</category>
+
+	<catgory>
+		<pattern>Plantar refers to the</pattern>
+		<template>Sole of the foot</template>
+	</category>
+
+	<catgory>
+		<pattern>For what is important the process of Atmospheric pressure</pattern>
+		<template>Breathing I think.</template>
+	</category>
+
+	<catgory>
+		<pattern>For what are important carbon atom in bioscience</pattern>
+		<template>For Carbon-Based entities</template>
+	</category>
+
+	<catgory>
+		<pattern>What nucleic acids consist</pattern>
+		<template>It's organic molecules</template>
+	</category>
+
+	<catgory>
+		<pattern>For what S.I units are standardised</pattern>
+		<template>For Units of measurements</template>
+	</category>
+
+	<catgory>
+		<pattern>What is the chemical formula of *</pattern><!-- sodium chloride -->
+		<template>The formula for <get name="formula_name"> is NaCL :D</template>
+	</category>
+
+	<catgory>
+		<pattern>What is the percentage of water in the body of an adult males</pattern>
+		<template>It's 60% :D</template>
+	</category>
+
+	<catgory>
+		<pattern>Which substance forms approximately 20% of air</pattern>
+		<template>Oxygen :)</template>
+	</category>
+
+	<catgory>
+		<pattern>What is the purpose of lymph node</pattern>
+		<template>Trap antigens</template>
+	</category>
+
+	<catgory>
+		<pattern>Give me some examples of opsonins</pattern>
+		<template>Complement factos; immunoglobulins</template>
+	</category>
+
+	<catgory>
+		<pattern>What is the functions of epithelial tissue</pattern>
+		<template>Absorption,Protection and Secretion</template>
+	</category>
+
+	<catgory>
+		<pattern>Which is the most abundant * in the human body</pattern>
+		<template>Connective <get name="tissue">.</template>
+	</category>
+
+	<catgory>
+		<pattern>Which * type has the greatest capacity to regenerate</pattern>
+		<template>Epithelial <get name="tissue">.</template>
+	</category>
+
+	<catgory>
+		<pattern>What * rays can do</pattern><!-- ultra violet-->
+		<template><get name="rays"> can penetrate and cahnge skin cells</template>
+	</category>
+
+	<catgory>
+		<pattern>What people should be more careful in the sun</pattern>
+		<template>People with fair hair,red, or blonde hair and people who are dehydrated</template>
+	</category>
+
+	<catgory>
+		<pattern>What does the term diaphoresis mean</pattern>
+		<template>Excessive production of sweat</template>
+	</category>
+
+	<catgory>
+		<pattern>Which division of the nervous system includes the brain</pattern>
+		<template>The central nervous system</template>
+	</category>
+
+	<catgory>
+		<pattern>Which structure detects changes in temperature</pattern>
+		<template>Thermoreceptors</template>
+	</category>
+
+	<catgory>
+		<pattern>Which division of the nervous system initiates a response known as fight or flight?</pattern>
+		<template></template>
+	</category>
+
+	<catgory>
+		<pattern>Which part of the neurone receives information</pattern>
+		<template>The dendrite</template>
+	</category>
+	
+	
+	<category>
+		<pattern>DO YOU KNOW THE BIGGEST PART OF THE HUMAN BRAIN</pattern>
+		<template>I think is the cerebrum. </template>
+	</category>
+
+	<category>
+		<pattern>CAN YOU TELL ME THE NAME OF THE SUBSTANCE THAT GIVES SKIN AND HAIR ITS PIGMENT</pattern>
+		<template>Of course, it's the melanin. </template>
+	</category>
+
+	<category>
+		<pattern>TRUE OR FALSE? THE TWO CHAMBERS AT THE BOTTOM OF YOUR HEART ARE CALLED VENTRICLES </pattern>
+		<template>True. </template>
+	</category>
+
+	<category>
+		<pattern>THE MUSCLES FOUND IN THE FRONT OF YOUR THIGHS ARE KNOWN AS WHAT</pattern>
+		<template>They are known as quadriceps. </template>
+	</category>
+
+	<category>
+		<pattern>WHAT SUBSTANCE ARE NAILS MADE OF </pattern>
+		<template>That's keratin. </template>
+	</category>
+
+	<category>
+		<pattern>WHAT IS THE HUMAN BODY’S BIGGEST ORGAN </pattern>
+		<template>That's quite funny actually, it's the skin. </template>
+	</category>
+
+	<category>
+		<pattern>THE INNERMOST PART OF BONES CONTAINS WHAT </pattern>
+		<template>Bone marrow </template>
+	</category>
+
+	<category>
+		<pattern>TRUE OR FALSE? AN ADULT HUMAN BODY HAS OVER 500 BONES. </pattern>
+		<template>False, there are 206. </template>
+	</category>
+
+	<category>
+		<pattern>HOW MANY LUNGS DOES THE HUMAN BODY HAVE </pattern>
+		<template>Easy, two. </template>
+	</category>
+
+	<category>
+		<pattern>ANOTHER NAME FOR YOUR VOICE BOX IS THE </pattern>
+		<template>Larynx. </template>
+	</category>
+
+	<category>
+		<pattern>THE TWO HOLES IN THE NOSE ARE CALLED </pattern>
+		<template>Nostrils </template>
+	</category>
+
+	<category>
+		<pattern>THE BONES THAT MAKE UP YOUR SPINE ARE CALLED WHAT </pattern>
+		<template>Vertebrae. </template>
+	</category>
+
+	<category>
+		<pattern>THE SHAPE OF DNA IS KNOWN AS </pattern>
+		<template>A double helix. </template>
+	</category>
+
+	<category>
+		<pattern>THE FLOW OF BLOOD THROUGH YOUR HEART AND AROUND YOUR BODY IS CALLED </pattern>
+		<template>That's basic anatomy, you should know, it's called circulation. </template>
+	</category>
+
+	<category>
+		<pattern>THE BONES AROUND YOUR CHEST THAT PROTECT ORGANS SUCH AS THE HEART ARE CALLED WHAT </pattern>
+		<template>Ribs. Talking about ribs, i remember when i broke 3 of my ribs. </template>
+	</category>
+
+	<category>
+		<pattern>TRUE OR FALSE? YOUR EARS ARE IMPORTANT WHEN IT COMES TO STAYING BALANCED </pattern>
+		<template>True. </template>
+	</category>
+
+	<category>
+		<pattern>THE OUTSIDE LAYER OF SKIN ON THE HUMAN BODY IS CALLED THE </pattern>
+		<template>Epidermis. </template>
+	</category>
+
+	<category>
+		<pattern>* HEADACHE *</pattern>
+		<template>Did you know there is an increased risk of depression in those with severe headaches? </template>
+	</category>
+
+</aiml>
