@@ -24,7 +24,7 @@ cur = db.cursor()
 cur.execute("SELECT * FROM Users")
 
 table= cur.fetchall()
-cur.execute("SELECT * FROM Question")
+cur.execute("SELECT * FROM questions")
 questions = cur.fetchall()
 
 db.close()
@@ -51,14 +51,13 @@ def main(question):
     print botMood.get_current_mood(question)
     #users=table
     bootMemory= Memory()
-    res=kernel.respond(question,sessionId)
+    res=synonymCheck("resources/synonyms.json",question)
     if bootMemory.checkQuestionRepetition(question)==1:
         bootMemory.addQuestion(question)
         response=bootMemory.getRandomForRepetition()
         bootMemory.addResponse(response)
         return response
     bootMemory.addQuestion(question)
-    bootMemory.addResponse(res)
 
     if len(attr)>1:
         attr=verifyExistence(kernel,sessionId,attr)
@@ -69,12 +68,32 @@ def main(question):
         decideToMemorate(kernel,sessionId)
     if res=='':
         res = rnd.answer(questions)
+
+    bootMemory.addResponse(res)
     return res
 
 
 def deleteContent(fName):
     with open(fName, "w"):
         pass
+
+
+def synonymCheck(filePath, question):
+    res=kernel.respond(question,sessionId)
+    if res is not None:
+        return res
+    with open(filePath) as data_file:
+        data = json.load(data_file)
+    for i in data:
+        aux = question
+        for j in data[i]:
+            aux = aux.replace(i, data[i][j])
+            res=kernel.respond(aux,sessionId)
+            if res is not None:
+                return res
+            aux = question
+    return "No answer found"
+
 
 if __name__ == '__main__':
     CORS(app)

@@ -1,5 +1,5 @@
 import random
-
+import json
 
 class Memory:
     responseList=[]
