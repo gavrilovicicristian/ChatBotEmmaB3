@@ -7,6 +7,8 @@ from mood import Mood
 from personBD import *
 from personality import *
 from randomAnswer import RandomAnswer
+import random
+import isEnglishOrJibberish
 
 app = Flask(__name__)
 
@@ -24,7 +26,7 @@ cur = db.cursor()
 cur.execute("SELECT * FROM Users")
 
 table= cur.fetchall()
-cur.execute("SELECT * FROM Question")
+cur.execute("SELECT * FROM questions")
 questions = cur.fetchall()
 
 db.close()
@@ -52,6 +54,10 @@ def main(question):
     #users=table
     bootMemory= Memory()
     res=kernel.respond(question,sessionId)
+    responses_incase_nonenglish = open('jibberish_responses.json', 'r').read()
+    jibberish_array = json.loads(responses_incase_nonenglish)
+    if not (isEnglishOrJibberish.is_english_sentence(question)):
+        return random.choice(jibberish_array)
     if bootMemory.checkQuestionRepetition(question)==1:
         bootMemory.addQuestion(question)
         response=bootMemory.getRandomForRepetition()
