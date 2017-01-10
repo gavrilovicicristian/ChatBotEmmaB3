@@ -7,7 +7,7 @@ from mood import Mood
 from personBD import *
 from personality import *
 from randomAnswer import RandomAnswer
-
+from questions_dict import *
 app = Flask(__name__)
 
 db = MySQLdb.connect(host="ppdatabase.ccvycmsqlp8u.eu-central-1.rds.amazonaws.com",    # your host, usually localhost
@@ -21,12 +21,11 @@ cur = db.cursor()
 
 # for row in cur.fetchall():
 #     print row[0]
-cur.execute("SELECT * FROM Users")
+cur.execute("SELECT * FROM persons")
 
 table= cur.fetchall()
-cur.execute("SELECT * FROM Question")
+cur.execute("SELECT * FROM questions")
 questions = cur.fetchall()
-
 db.close()
 
 rnd = RandomAnswer()
@@ -42,16 +41,22 @@ botMood = Mood()
 
 attr=getPeopleAttributes()
 iKnowOp=2
-
+pairQA_dict={}
 # Press CTRL-C to break this loop
 @app.route('/<question>')
 def main(question):
     global attr
     global iKnowOp
+    global pairQA_dict
     print botMood.get_current_mood(question)
     #users=table
     bootMemory= Memory()
     res=kernel.respond(question,sessionId)
+    if res=='CLOSING SESSION' and len(attr)==1:
+        pers = attr[0]
+        #memorate_dict(pers[0],pairQA_dict)
+    if res=='':
+        pairQA_dict[question]=res
     if bootMemory.checkQuestionRepetition(question)==1:
         bootMemory.addQuestion(question)
         response=bootMemory.getRandomForRepetition()
@@ -64,6 +69,8 @@ def main(question):
         attr=verifyExistence(kernel,sessionId,attr)
     if len(attr)==1:
         iKnowOp=1
+        pers=attr[0]
+        QA=getQA_dict(pers[0])
     if len(attr)==0:
         iKnowOp=0
         decideToMemorate(kernel,sessionId)

@@ -18,14 +18,16 @@ def getPeopleAttributes():
 
 def verifyExistence(kernel,id,table):
     users=table
-    first_name=kernel.getPredicate("first_name", id)
-    if first_name!="":
-        users=[t for t in users if t[1]==first_name]
 
+    first_name=kernel.getPredicate("first_name", id)
+    print first_name, 'fafa'
+    if first_name!="":
+        print 'got here'
+        users=[t for t in users if t[1]==first_name]
+        print users
     last_name=kernel.getPredicate("last_name",id)
     if last_name!="":
         users=[t for t in users if t[2]==last_name]
-
     city=kernel.getPredicate("city",id)
     if city!="":
         users = [t for t in users if t[4] == city]
@@ -53,6 +55,7 @@ def verifyExistence(kernel,id,table):
     hair_color = kernel.getPredicate("hair_color", id)
     if hair_color != "":
         users = [t for t in users if t[9] == hair_color]
+    print users
     return users
 
 def decideToMemorate(kernel,id):
