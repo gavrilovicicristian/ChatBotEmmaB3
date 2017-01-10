@@ -58,13 +58,13 @@ def main(question):
     jibberish_array = json.loads(responses_incase_nonenglish)
     if not (isEnglishOrJibberish.is_english_sentence(question)):
         return random.choice(jibberish_array)
+    res=synonymCheck("resources/synonyms.json",question)
     if bootMemory.checkQuestionRepetition(question)==1:
         bootMemory.addQuestion(question)
         response=bootMemory.getRandomForRepetition()
         bootMemory.addResponse(response)
         return response
     bootMemory.addQuestion(question)
-    bootMemory.addResponse(res)
 
     if len(attr)>1:
         attr=verifyExistence(kernel,sessionId,attr)
@@ -75,12 +75,32 @@ def main(question):
         decideToMemorate(kernel,sessionId)
     if res=='':
         res = rnd.answer(questions)
+
+    bootMemory.addResponse(res)
     return res
 
 
 def deleteContent(fName):
     with open(fName, "w"):
         pass
+
+
+def synonymCheck(filePath, question):
+    res=kernel.respond(question,sessionId)
+    if res is not None:
+        return res
+    with open(filePath) as data_file:
+        data = json.load(data_file)
+    for i in data:
+        aux = question
+        for j in data[i]:
+            aux = aux.replace(i, data[i][j])
+            res=kernel.respond(aux,sessionId)
+            if res is not None:
+                return res
+            aux = question
+    return "No answer found"
+
 
 if __name__ == '__main__':
     CORS(app)
