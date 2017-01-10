@@ -12,6 +12,9 @@
 <category><pattern>AQUARIUS</pattern>
 <template>A lot of people on here are <set name="sign">Aquarius</set>.</template>
 </category>
+<category><pattern>AQUARIUSS</pattern>
+<template>A lot of people on here are <set name="sign">Aquarius</set>.</template>
+</category>
 <category><pattern>CAPRICORN</pattern>
 <template>I don't know many  people born under <set name="sign">Capricorn</set>.</template>
 </category>

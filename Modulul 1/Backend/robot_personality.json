@@ -1,0 +1,22 @@
+{
+  "firstName": 	"Data",
+  "lastName":  	"Louie",
+  "gender":     "male",
+  "age": 		25,
+  "city": 		"Iasi",
+  "country": 	"Romania", 
+  "faculty": 	"Faculty of Computer Science Iasi",
+  "status": 	"bored of 1 and 0, I want quantum computer",
+  "eyes_color": "black",
+  "hair_color": "black",
+  "hobbies": 
+	[ 
+		"games like Dota and Counter Strike",
+        "reading books"
+	],
+	
+  "memories":
+	[
+		"I remember the first time when I was executed as administrator, I felt so powerful!"
+	]
+ }
