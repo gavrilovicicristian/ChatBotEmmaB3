@@ -1,0 +1,42 @@
+LANGUAGE:en
+SYNONYMS:
+Hello:'hello'
+,:
+My:'My'
+name:'name'
+is:'embody', 'exist', 'equal', 'cost', 'constitute', 'be'
+John:'john', 'toilet', 'whoremaster'
+Cernat:'Cernat'
+,:
+I:
+live:'be', 'live', 'know', 'exist', 'populate', 'survive'
+in:
+Romania:'romania'
+and:
+I:
+work:'make', 'cultivate', 'work', 'exploit', 'shape', 'bring', 'influence', 'knead', 'function', 'ferment', 'sour', 'solve', 'exercise'
+at:
+Google:'google'
+NAMED ENTITIES
+('Hello', 'GPE')
+('John Cernat', 'PERSON')
+('Romania', 'GPE')
+('Google', 'ORGANIZATION')
+Words with POS TAG:
+('Hello', 'NNP')
+(',', ',')
+('My', 'NNP')
+('name', 'NN')
+('is', 'VBZ')
+('John', 'NNP')
+('Cernat', 'NNP')
+(',', ',')
+('I', 'PRP')
+('live', 'VBP')
+('in', 'IN')
+('Romania', 'NNP')
+('and', 'CC')
+('I', 'PRP')
+('work', 'VBP')
+('at', 'IN')
+('Google', 'NNP')
