@@ -3,7 +3,7 @@ import random
 class RandomAnswer:
     def __init__(self):
         self.defaultAnswers = []
-        self.defaultAnswers.append('Still here?')
+        self.defaultAnswers.append("Still here?")
         self.defaultAnswers.append("What's wrong?")
         self.defaultAnswers.append("Hey, where are you?")
         self.defaultAnswers.append("Tell me something..")
