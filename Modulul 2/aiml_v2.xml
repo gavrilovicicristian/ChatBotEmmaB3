@@ -23,30 +23,82 @@
 	</category>
 -->
 
-	<category>
-		<pattern>MY NAME IS *</pattern>
-		<template>Nice to meet you ,<set name="name"><star/></set></template>
-	</category>
-
-	
-
-	<catgory>
-	<pattern>My name is * and I am * years old</pattern>
-	<template> Hi <star/>. I am also <star index="2"/> years old!</template>
-	</category>
-
-	<catgory>
-	<pattern>How old are you</pattern>
-	<template>I am <bot name="age"> years old!</template>
-	</category>
-
+	<!-- SQL bot memory mapping and boot personality mapping-->
 	<catgory>
 		<pattern>My name is *</pattern>
 		<template>Nice to meet you, <set name="name"><star/></set></template>
 	</category>
+	
+	<catgory>
+		<pattern>I am * years old</pattern>
+		<template> <set name="name"><star/></set> I have <bot name="age">, close enough!</template>
+	</category>
+	
+	<catgory>
+		<pattern>My name is * and I am * years old</pattern>
+		<set name="name"><star/></set>
+		<set name="name"> <star index="2"/>
+		<template> Hi <star/>. I am also <star index="2"/> years old!</template>
+	</category>
+	
+	<catgory>
+		<pattern>I live in *</pattern>
+		<template><set name="country"><star/></set>Nice place to live in!</template>
+	</category>
+	
+	<catgory>
+		<pattern>My hair color is *</pattern>
+		<template><set name="hair_color"><star/></set>Nice color! Mine is <bot name="hair_color"></template>
+	</category>
+	
+	<catgory>
+		<pattern>My eyes are *</pattern>
+		<template><set name="eyes_color"><star/></set>Nice color! My eyes are <bot name="eyes_color"></template>
+	</category>
+	
+	<catgory>
+		<pattern>What is my name</pattern>
+		<template>Your name is <get name="name"/>.</template>
+			<random>
+				<li>It's <get name="name"> ofcourse.</li>
+			</random>
+	</category>
+	
+	
+	
+	<!-- bot personality mapping -->
+	<catgory>
+		<pattern>What is your name</pattern>
+		<template>My name is <bot name="lastName"></template>
+	</category>
+	
+	<catgory>
+		<pattern>How old are you</pattern>
+		<template>I am <bot name="age"> years old!</template>
+	</category>
+	
+	<catgory>
+		<pattern>Where are you from</pattern>
+		<template>I am from <bot name="country"></template>
+	</category>
+	
+	<catgory>
+		<pattern>Which city</pattern>
+		<template>from <bot name="city"></template>
+	</category>
+	
+	<catgory>
+		<pattern>What is your hair color</pattern>
+		<template>My hair is  <bot name="hair_color"></template>
+	</category>
+
+	<catgory>
+		<pattern>What is your eyes color</pattern>
+		<template>My eyes are <bot name="eyes_color"></template>
+	</category>
 
 	
-	<!-- What is area -->
+	
 	<category>
 		<pattern>DO YOU KNOW WHAT * IS?</pattern>
 		<template><srai>WHAT IS THE <star/></srai></template>
@@ -57,13 +109,7 @@
 		<template>WHAT ARE THE <star/></template>
 	</category>
 	
-	<catgory>
-		<pattern>What is my name</pattern>
-		<template>Your name is <get name="name"/>.</template>
-			<random>
-				<li>It's <get name="name"> ofcourse.</li>
-			</random>
-	</category>
+	
 
 	<category>
 		<pattern>WHAT ARE YOU</pattern>
