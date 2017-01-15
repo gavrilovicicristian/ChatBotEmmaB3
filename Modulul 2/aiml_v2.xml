@@ -23,21 +23,21 @@
 	</category>
 -->
 
-	<!-- SQL bot memory mapping and boot personality mapping-->
+	<!-- User informations-->
 	<catgory>
 		<pattern>My name is *</pattern>
-		<template>Nice to meet you, <set name="name"><star/></set></template>
+		<template>Nice to meet you, <set name="first_name"><star/></set></template>
 	</category>
 	
 	<catgory>
 		<pattern>I am * years old</pattern>
-		<template> <set name="name"><star/></set> I have <bot name="age">, close enough!</template>
+		<template> <set name="age"><star/></set> I have <bot name="age">, close enough!</template>
 	</category>
 	
 	<catgory>
 		<pattern>My name is * and I am * years old</pattern>
-		<set name="name"><star/></set>
-		<set name="name"> <star index="2"/>
+		<set name="first_name"><star index="1"></set>
+		<set name="age"> <star index="2"/> </set>
 		<template> Hi <star/>. I am also <star index="2"/> years old!</template>
 	</category>
 	
@@ -639,7 +639,7 @@
 	</category>
 
 	<category>
-		<pattern>WHAT IS THE HUMAN BODY’S BIGGEST ORGAN </pattern>
+		<pattern>WHAT IS THE HUMAN BODYÂ’S BIGGEST ORGAN </pattern>
 		<template>That's quite funny actually, it's the skin. </template>
 	</category>
 
