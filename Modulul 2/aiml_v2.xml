@@ -26,7 +26,7 @@
 	<!-- User informations-->
 	<catgory>
 		<pattern>My name is *</pattern>
-		<template>Nice to meet you, <set name="first_name"><star/></set></template>
+		<template>Nice to meet you, <set name="first_name"><star/></set>,I am <bot name="lastName"></template>
 	</category>
 	
 	<catgory>
@@ -38,12 +38,12 @@
 		<pattern>My name is * and I am * years old</pattern>
 		<set name="first_name"><star index="1"></set>
 		<set name="age"> <star index="2"/> </set>
-		<template> Hi <star/>. I am also <star index="2"/> years old!</template>
+		<template> Hi <star/>. I am also <star index="2"/> years old!.By the way my name is <bot name="lastName">.</template>
 	</category>
 	
 	<catgory>
 		<pattern>I live in *</pattern>
-		<template><set name="country"><star/></set>Nice place to live in!</template>
+		<template><think><set name="country"><star/></set></think>That sounds like a nice place to live in.But not better than <bot name="country"></template>
 	</category>
 	
 	<catgory>
@@ -53,15 +53,16 @@
 	
 	<catgory>
 		<pattern>My eyes are *</pattern>
-		<template><set name="eyes_color"><star/></set>Nice color! My eyes are <bot name="eyes_color"></template>
+		<template><set name="eyes_color"><star/></set>Nice color! But I think my <bot name="eyes_color"> eyes are unique.</template>
 	</category>
 	
 	<catgory>
 		<pattern>What is my name</pattern>
-		<template>Your name is <get name="name"/>.</template>
-			<random>
-				<li>It's <get name="name"> ofcourse.</li>
-			</random>
+		<template><random>
+				<li>It's <get name="first_name"> ofcourse.</li>
+				<li>I believe it's <get name="first_name"></li>
+				<li>Wait I know that.It's R..C..M..I.I can't remember...Ohhhh wait it's <get name="first_name"> how could I forget.
+			</random></template>
 	</category>
 	
 	
@@ -97,7 +98,7 @@
 		<template>My eyes are <bot name="eyes_color"></template>
 	</category>
 
-	
+	<!-- bot personality mapping END -->
 	
 	<category>
 		<pattern>DO YOU KNOW WHAT * IS?</pattern>
