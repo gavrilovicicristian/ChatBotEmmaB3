@@ -54,8 +54,13 @@ def main(question):
     #users=table
     bootMemory= Memory()
     res=kernel.respond(question,sessionId)
-    if res=='CLOSING SESSION' and len(attr)==1:
-        pers = attr[0]
+    print res
+    if res=='CLOSING SESSION':
+        if len(attr)==1:
+            pers = attr[0]
+        elif len(attr)==0:
+            memoratePerson(kernel,sessionId)
+        exit(1)
         #memorate_dict(pers[0],pairQA_dict)
     if res=='':
         pairQA_dict[question]=res
@@ -76,6 +81,8 @@ def main(question):
     if len(attr)==1:
         iKnowOp=1
         pers=attr[0]
+        print pers
+        updateAttributes(kernel,attr[0],sessionId)
         QA=getQA_dict(pers[0])
     if len(attr)==0:
         iKnowOp=0

@@ -1,15 +1,60 @@
 <aiml version="1.0.1" encoding="UTF-8">
     <category>
-        <pattern>WHAT IS MY NAME</pattern>
+        <pattern>GOOD BYE</pattern>
         <template>
-              <get name="name" />
+            CLOSING SESSION
         </template>
     </category>
 
     <category>
+        <pattern>I AM * YEARS OLD</pattern>
+        <template>
+            OH. YOUR ARE LOOKING GOOD AT <set name="age"><star/></set>
+        </template>
+    </category>
+    <category>
+        <pattern>HOW OLD AM I?</pattern>
+        <template>
+            You are <set name="age"> old <star/></set>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS MY FIRST NAME</pattern>
+        <template>
+              YOUR FIRST NAME IS <get name="first_name" />
+        </template>
+    </category>
+    <category>
+      <pattern>MY FIRST NAME IS *</pattern>
+      <template>
+         Hello <set name="first_name"><star/></set>
+      </template>
+   </category>
+
+    <category>
+        <pattern>WHAT IS MY NAME</pattern>
+        <template>
+              YOUR NAME IS <get name="first_name" />
+        </template>
+    </category>
+    <category>
       <pattern>MY NAME IS *</pattern>
       <template>
-         Hello <set name="name"><star/></set>
+         Hello <set name="first_name"><star/></set>
+      </template>
+   </category>
+
+    <category>
+        <pattern>WHAT IS MY LAST NAME</pattern>
+        <template>
+              <get name="last_name" />
+        </template>
+    </category>
+    <category>
+      <pattern>MY LAST NAME IS *</pattern>
+      <template>
+         Hello <set name="last_name"><star/></set>
       </template>
    </category>
 
@@ -26,18 +71,99 @@
       </template>
    </category>
 
-   <category>
-      <pattern>I AM * YEARS OLD</pattern>
+    <category>
+      <pattern>MY CITY NAME IS *</pattern>
       <template>
-         OH. YOUR ARE YOUNG AT <set name="age"><star/></set>
+         OH, really in <set name="city"><star/></set>
+      </template>
+   </category>
+   <category>
+      <pattern>WHAT IS MY CITY NAME</pattern>
+      <template>
+         You live in <get name="city"/>.
+      </template>
+   </category>
+
+   <category>
+      <pattern>I AM YOUR *</pattern>
+      <template>
+         Of course you are my <set name="status"><star/></set>
+      </template>
+   </category>
+   <category>
+      <pattern>WHAT AM I TO YOU?</pattern>
+      <template>
+         You are my <get name="status"/>.
+      </template>
+   </category>
+
+    <category>
+      <pattern>MY COUNTRY NAME IS *</pattern>
+      <template>
+         OH, really in <set name="country"><star/></set>
+      </template>
+   </category>
+   <category>
+      <pattern>WHAT IS MY COUNTRY NAME</pattern>
+      <template>
+         You live in <get name="country"/>.
+      </template>
+   </category>
+
+   <category>
+      <pattern>WHAT NATIONALITY AM I?</pattern>
+      <template>
+         Your nationality is <get name="nationality"/>.
       </template>
    </category>
     <category>
-        <pattern>WHAT IS MY LAST NAME</pattern>
-        <template>
-            <get name="lastname" />
-        </template>
-    </category>
+      <pattern>MY NATIONATILY IS *</pattern>
+      <template>
+         OH, I know a lot of people with <set name="nationality"> nationality <star/></set>
+      </template>
+   </category>
+
+   <category>
+      <pattern>MY RELIGION NAME IS *</pattern>
+      <template>
+         OH, nice. You belive in <set name="religion"><star/></set>
+      </template>
+   </category>
+   <category>
+      <pattern>WHAT IS MY RELIGION?</pattern>
+      <template>
+         You are a <get name="religion"/>.
+      </template>
+   </category>
+
+
+   <category>
+      <pattern>WHAT COLOR ARE MY EYES?</pattern>
+      <template>
+         A beautiful of<get name="eyes_color"/>.
+      </template>
+   </category>
+   <category>
+      <pattern>MY EYES ARE *</pattern>
+      <template>
+         OH. I love <set name="eyes_color"><star/></set>
+      </template>
+   </category>
+
+   <category>
+      <pattern>WHAT COLOR IS MY HAIR?</pattern>
+      <template>
+         An amazing of<get name="hair_color"/>.
+      </template>
+   </category>
+   <category>
+      <pattern>MY HAIR IS *</pattern>
+      <template>
+         OH. I love <set name="hair_color"><star/></set>
+      </template>
+   </category>
+
+
     <category>
         <pattern>DO YOU [LOVE LUV] ME</pattern>
         <template>Yes, I love you.</template>
