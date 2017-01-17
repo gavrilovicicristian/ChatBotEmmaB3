@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aiml version="1.0">
+<aiml>
 
 <category>
 		<pattern> HI </pattern>
@@ -26,7 +26,7 @@
 	<!-- User informations-->
 	<catgory>
 		<pattern>My name is *</pattern>
-		<template>Nice to meet you, <set name="first_name"><star/></set>,I am <bot name="lastName"></template>
+		<template>Nice to meet you, <set name="first_name"><star/></set>,I am <bot name="lastName"></bot></template>
 	</category>
 	
 	<catgory>
@@ -640,7 +640,7 @@
 	</category>
 
 	<category>
-		<pattern>WHAT IS THE HUMAN BODYS BIGGEST ORGAN </pattern>
+		<pattern>WHAT IS THE HUMAN BODY?S BIGGEST ORGAN </pattern>
 		<template>That's quite funny actually, it's the skin. </template>
 	</category>
 
